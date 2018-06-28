@@ -56,6 +56,7 @@ def run_command(debugger, command, result, internal_dict):
     #https://stackoverflow.com/a/39581193 
     launchInfo.SetEnvironmentEntries(['OS_ACTIVITY_DT_MODE=enable'], True)
     
+    launchInfo.SetEnvironmentEntries(['DYLD_PRINT_STATISTICS=1'], True)
     lldb.target.Launch(launchInfo, error)
     lockedstr = ': Locked'
     if lockedstr in str(error):
